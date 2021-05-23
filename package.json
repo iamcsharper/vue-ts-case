@@ -6,13 +6,27 @@
     "serve": "vue-cli-service serve",
     "build": "vue-cli-service build",
     "test:unit": "vue-cli-service test:unit",
-    "lint": "vue-cli-service lint"
+    "lint": "vue-cli-service lint",
+    "lint:fix": "tslint --fix --project ."
+  },
+  "eslintConfig": {
+    "root": true,
+    "extends": [
+      "plugin:vue/essential",
+      "plugin:prettier/recommended",
+      "eslint:recommended"
+    ]
   },
   "dependencies": {
+    "mdue": "^0.1.4",
+    "moment": "^2.29.1",
+    "rxjs": "^6.6.7",
     "vue": "^3.0.0",
     "vue-class-component": "^8.0.0-0",
-    "vue-router": "^4.0.0-0",
-    "vuex": "^4.0.0-0"
+    "vue-router": "^4.0.0-alpha.6",
+    "vue-rx": "^6.2.0",
+    "vuejs-loading-plugin": "^1.0.51",
+    "vuex": "^4.0.0"
   },
   "devDependencies": {
     "@types/chai": "^4.2.11",
@@ -27,12 +41,17 @@
     "@vue/cli-service": "~4.5.0",
     "@vue/compiler-sfc": "^3.0.0",
     "@vue/eslint-config-typescript": "^7.0.0",
-    "@vue/test-utils": "^2.0.0-0",
+    "@vue/test-utils": "^2.0.0-alpha.1",
     "chai": "^4.1.2",
     "eslint": "^6.7.2",
+    "eslint-config-prettier": "^8.1.0",
+    "eslint-plugin-prettier": "^3.3.1",
+    "eslint-plugin-simple-import-sort": "^7.0.0",
     "eslint-plugin-vue": "^7.0.0",
     "node-sass": "^4.12.0",
     "sass-loader": "^8.0.2",
-    "typescript": "~4.1.5"
+    "tslint-config-standard": "^9.0.0",
+    "typescript": "~4.1.5",
+    "typescript-eslint": "^0.0.1-alpha.0"
   }
 }

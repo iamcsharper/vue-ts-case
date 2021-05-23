@@ -1,0 +1,35 @@
+
+.labeled-control-wrapper {
+    position: relative;
+    width: 100%;
+    flex: auto;
+    min-width: 0;
+    text-align: left;
+    border-top: 0;
+    display: inline-flex;
+    align-items: baseline;
+
+    label {
+        position: absolute;
+        left: 1em;
+        box-sizing: content-box;
+        width: fit-content;
+        height: auto;
+        overflow: hidden;
+        pointer-events: none;
+        z-index: 1;
+        background: $body-background;
+        top: 0.5rem;
+        padding: 0 0.5rem;
+    }
+}
+.form-control {
+    display: block;
+    width: 100%;
+    padding: 1em 0;
+    outline: none;
+}
+select.form-control {
+    background: none;
+    border-radius: 5px;
+}

@@ -1,0 +1,5 @@
+1) Look into https://github.com/vuejs/vue-rx
+2) Search for mocha and unit tests
+3) Consider using @TSDoc
+4) Get your hands on https://www.npmjs.com/package/vuejs-loading-plugin
+5) Save in localStorage https://www.npmjs.com/package/vuex-persistedstate

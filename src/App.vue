@@ -1,30 +1,58 @@
 <template>
-  <div id="nav">
-    <router-link to="/">Home</router-link> |
-    <router-link to="/about">About</router-link>
-  </div>
-  <router-view/>
+  <main>
+    <AppTop />
+    <div class="container">
+      <p>{{ counterValue }}</p>
+      <router-view v-slot="{ Component }">
+        <transition
+          :name="transitionName"
+          mode="out-in"
+        >
+          <component :is="Component" /> 
+        </transition>
+      </router-view>
+    </div>
+    <transition name="fade">
+      <Sidebar v-if="isSidebarOpen" />
+    </transition>
+    <AppBottom />
+  </main>
 </template>
+<script lang="ts">
+import { useStore, Store, State } from "@/store";
+import AppBottom from '@/components/AppBottom.vue'; 
+import AppTop from '@/components/AppTop.vue'; 
+import Sidebar from '@/components/Sidebar.vue'; 
+import { Options, Vue } from 'vue-class-component';
 
+import { SetupAnimation, IAnimatedRoute } from "@/util/animations";
+
+const store = useStore();
+
+@Options({
+  components: {
+    AppBottom,
+    AppTop,
+    Sidebar
+  }
+})
+export default class App extends Vue implements IAnimatedRoute {
+  public transitionName = "slide";
+
+  public isSidebarOpen = false;
+
+  get counterValue() {
+    return store.getters.counterGet.toString();
+  }
+
+  created() {
+    SetupAnimation(this);
+  }
+}
+</script>
 <style lang="scss">
 #app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
   color: #2c3e50;
-}
-
-#nav {
-  padding: 30px;
-
-  a {
-    font-weight: bold;
-    color: #2c3e50;
-
-    &.router-link-exact-active {
-      color: #42b983;
-    }
-  }
+  padding-bottom: $bottom-app-height;
 }
 </style>
